@@ -7,7 +7,7 @@
 <body>
     <h1>Questionário de Acordo de Sócios</h1>
     <form method="post">
-        {% for i, pergunta in enumerate(perguntas) %}
+        {% for pergunta in perguntas %}
             <label>{{ pergunta }}</label><br>
             <input type="text" name="pergunta_{{ i }}"><br><br>
         {% endfor %}
