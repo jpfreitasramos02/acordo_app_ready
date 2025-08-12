@@ -9,7 +9,7 @@
     <form method="post">
         {% for pergunta in perguntas %}
             <label>{{ pergunta }}</label><br>
-            <input type="text" name="pergunta_{{ i }}"><br><br>
+            <input type="text" name="pergunta_{{ loop.index0 }}"><br><br>
         {% endfor %}
         <button type="submit">Gerar Documento</button>
     </form>
