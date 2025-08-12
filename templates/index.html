@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Questionário</title>
+</head>
+<body>
+    <h1>Questionário de Acordo de Sócios</h1>
+    <form method="post">
+        {% for i, pergunta in enumerate(perguntas) %}
+            <label>{{ pergunta }}</label><br>
+            <input type="text" name="pergunta_{{ i }}"><br><br>
+        {% endfor %}
+        <button type="submit">Gerar Documento</button>
+    </form>
+</body>
+</html>
