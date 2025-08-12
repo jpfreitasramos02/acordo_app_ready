@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Questionário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Perguntas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Questionário de Acordo de Sócios</h1>
-    <form method="post">
-        {% for pergunta in perguntas %}
-            <label>{{ pergunta }}</label><br>
-            <input type="text" name="pergunta_{{ loop.index0 }}"><br><br>
-        {% endfor %}
-        <button type="submit">Gerar Documento</button>
-    </form>
+    <div class="container">
+        <h1>Formulário</h1>
+        <form action="/gerar_docx" method="post">
+            {% for pergunta in perguntas %}
+                <div class="mb-3">
+                    <label for="pergunta_{{ loop.index0 }}" class="form-label">{{ pergunta }}</label>
+                    <input type="text" class="form-control" id="pergunta_{{ loop.index0 }}" name="pergunta_{{ loop.index0 }}">
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary w-100">Gerar Documento</button>
+        </form>
+    </div>
 </body>
 </html>
